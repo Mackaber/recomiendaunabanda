@@ -1,0 +1,125 @@
+/*------------------------------------------- GENERAL -------------------------------------------------*/
+
+html {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+body {
+	background-color: #3C82F8;
+	color: #FFF;
+	font-family: 'Francois One', sans-serif;
+}
+
+.poster, .sharable {
+	max-width: 100%;
+}
+
+.content {
+  padding:30px;
+  height:100%;
+}
+
+.tags {
+  color: #C4543B;
+}
+
+.center {
+  display: table!important;
+	margin: 0 auto;
+}
+
+button {
+  font-size: 31px;
+  background-color: #00000000;
+  border: solid 5px;
+  padding: 17px;
+  border-radius: 20px;
+  color: #7bfeca;
+  cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+/*------------------------------------------- COLLAPSE -------------------------------------------------*/
+
+.info {
+  margin: 20px;
+}
+
+/*------------------------------------------- COLLAPSE -------------------------------------------------*/
+
+.collapse {
+  font-size: 31px;
+  width: 100%;
+  height: 45px;
+  background-color: #161719;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.collapse:hover {
+  background-color: #666;
+}
+
+.collapse + input {
+  display:none;
+}
+
+.collapse + input + * {
+  height:0px;
+  /*overflow: hidden;*/
+  -webkit-transition: height 0.5s; /* Safari */
+  transition: height 0.5s;
+  overflow:hidden;
+}
+
+.collapse + input:checked + * {
+  height:300px;
+  -webkit-transition: height 0.5s; /* Safari */
+  transition: height 0.5s;
+}
+
+/*------------------------------------------- MEDIA -------------------------------------------------*/
+
+@media (min-width: 768px) {
+
+  .poster {
+  	width: 35%
+  }
+
+  .sharable {
+  	width: 50%
+  }
+
+  label.collapse {
+    display: none;
+  }
+
+  .collapse + input + * {
+    height:300px;
+  }
+
+  .collapse + input:checked + * {
+    height:300px;
+  }
+
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    float: left;
+    width: 18em;
+  }
+
+  .content{
+    margin-left: 22em;
+    max-width: 72em;
+  }
+
+}

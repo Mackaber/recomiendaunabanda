@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta property="og:image" content="http://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg" />
+    <title>#RecomiendaUnaBanda</title>
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+      #login, #loggedin, #artist {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+    <div>
+      <div style="width: 100%" id="login">
+        <h1 class="center" style="text-align: center;">¿Que artista sigues que nadie más escucha?</h1>
+  <img class="center poster" src="https://pbs.twimg.com/media/Dk0fV3gWsAEP7jF.jpg:large">
+        <br />
+        <button class="button center" id="login-button">¡Averiguémoslo!</button>
+      </div>
+      <div id="loggedin">
+        <div id="artist">
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Creado por <a href="https://twitter.com/mackaber">@mackaber</a> por una idea de <a href="https://twitter.com/pictoline">@pictoline</a> íconos cortesía de flaticon.</p>
+    </footer>
+  </body>
+    <script id="artist-template" type="text/x-handlebars-template">
+      <h1 class="center">TU RESULTADO ES:</h1><br>
+      <img class="center sharable" src="http://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png">
+      <br>
+      <br>
+      <div class="center">
+	      <a href="https://twitter.com/intent/tweet?button_hashtag=RecomiendaUnaBanda&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-size="large" data-url="http://metamagic.mackaber.me/?url=https://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png&orgn=http://rub.mackaber.me&title=RECOMIENDAUNABANDA&description=Averigua%20que%20artistas%20sigues%20que%20nadie%20mas%20escucha&card=summary_large_image&site=@mackaber" data-show-count="true" data-related="mackaber,pictoline" data-lang="es" data-show-count="false">Tweet #RecomiendaUnaBanda</a>
+	      <br>
+	      <div class="center fb-share-button" 
+	        data-href="http://metamagic.mackaber.me/?url=https://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Arial_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png&orgn=http://rub.mackaber.me&title=RECOMIENDAUNABANDA&description=sAverigua%20que%20artistas%20sigues%20que%20nadie%20mas%20escucha&card=summary_large_image&site=@mackaber" 
+	        data-layout="button_count">
+	      </div>
+	  	</div>
+	  </script>
+
+      
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/JMPerez/spotify-web-api-js/9a36af02/src/spotify-web-api.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      (function() {
+        var stateKey = 'spotify_auth_state';
+
+        /**
+         * Obtains parameters from the hash of the URL
+         * @return Object
+         */
+        function getHashParams() {
+          var hashParams = {};
+          var e, r = /([^&;=]+)=?([^&;]*)/g,
+              q = window.location.hash.substring(1);
+          while ( e = r.exec(q)) {
+             hashParams[e[1]] = decodeURIComponent(e[2]);
+          }
+          return hashParams;
+        }
+
+        /**
+         * Generates a random string containing numbers and letters
+         * @param  {number} length The length of the string
+         * @return {string} The generated string
+         */
+        function generateRandomString(length) {
+          var text = '';
+          var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+          for (var i = 0; i < length; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+          }
+          return text;
+        };
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            state = params.state,
+            storedState = localStorage.getItem(stateKey);
+
+        if (access_token && (state == null || state !== storedState)) {
+          alert('There was an error during the authentication');
+        } else {
+          localStorage.removeItem(stateKey);
+          if (access_token) {
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  $('#login').hide();
+                  $('#loggedin').show();
+                  window.location.hash = '';
+                  start(access_token,response);
+                }
+            });
+          } else {
+              $('#login').show();
+              $('#loggedin').hide();
+          }
+
+          document.getElementById('login-button').addEventListener('click', function() {
+
+            var client_id = '434c6e646b3f4cd8be2c77d87b5e97b6'; // Your client id
+            var redirect_uri = 'http://127.0.0.1:4000/'; // Your redirect uri
+
+            var state = generateRandomString(16);
+
+            localStorage.setItem(stateKey, state);
+            var scope = 'user-read-private user-read-email user-follow-read';
+
+            var url = 'https://accounts.spotify.com/authorize';
+            url += '?response_type=token';
+            url += '&client_id=' + encodeURIComponent(client_id);
+            url += '&scope=' + encodeURIComponent(scope);
+            url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+            url += '&state=' + encodeURIComponent(state);
+
+            window.location = url;
+          }, false);
+        }
+      })();
+    </script>
+</html>
