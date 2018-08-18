@@ -41,16 +41,20 @@ function start(token,response) {
 		count += 50
 		return res;
 	}).then(function(res){
-		while(count < total) {
-			prom = spotifyApi.getFollowedArtists({limit: 50, after: res.artists.items[49].id})
-			prom.then(function(r) {
-				addArtists(artists,r);
-			}).then(function(){
-				if(count > total) {
-					displayResults(artists);
-				}
-			});
-			count += 50
+		if(count < total){
+			while(count < total) {
+				prom = spotifyApi.getFollowedArtists({limit: 50, after: res.artists.items[49].id})
+				prom.then(function(r) {
+					addArtists(artists,r);
+				}).then(function(){
+					if(count > total) {
+						displayResults(artists);
+					}
+				});
+				count += 50
+			}
+		} else {
+			displayResults(artists);
 		}
 	});
 }
