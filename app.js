@@ -38,6 +38,7 @@ function start(token,response) {
 	followed_promise.then(function(res) {
 		total = res.artists.total;
 		addArtists(artists,res);
+		count += 50
 		return res;
 	}).then(function(res){
 		while(count < total) {
