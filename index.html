@@ -37,10 +37,14 @@
     <footer>
       <p>Creado por <a href="https://twitter.com/mackaber">@mackaber</a> por una idea de <a href="https://twitter.com/pictoline">@pictoline</a> íconos cortesía de flaticon.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js@2.0.4/dist/FileSaver.min.js"></script>
   </body>
     <script id="artist-template" type="text/x-handlebars-template">
       <h1 class="center">TU RESULTADO ES:</h1><br>
-      <img class="center sharable" src="{{link}}">
+      <img class="center sharable download_file" src="{{link}}" data-url="{{link}}">
+      <br>
+      <br>
+      <button class="button center download_file" data-url="{{link}}">Descargar</button>
 	  </script>
 
       
@@ -115,7 +119,7 @@
           document.getElementById('login-button').addEventListener('click', function() {
 
             var client_id = '434c6e646b3f4cd8be2c77d87b5e97b6'; // Your client id
-            var redirect_uri = 'https://rub.mackaber.me/'; // Your redirect uri
+            var redirect_uri = 'http://127.0.0.1:5500/'; // Your redirect uri
 
             var state = generateRandomString(16);
 

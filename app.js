@@ -51,6 +51,10 @@ function start(token,response) {
 		artistPlaceHolder.innerHTML = artistTemplate({ "link" : link });
 		$('#artist').show();
 		twttr.widgets.load(); 
+
+		$(".download_file").on('click', (e) => {
+    	saveAs(e.target.dataset.url,"recomienda.png")
+    });
 	}
 
 	followed_promise.then(function(res) {
