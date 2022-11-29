@@ -123,3 +123,9 @@ footer {
   }
 
 }
+
+.loading {
+  background: transparent url(equalizer.gif) center center no-repeat;
+  min-width: 100%;
+  min-height: 500px;
+}

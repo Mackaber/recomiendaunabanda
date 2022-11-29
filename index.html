@@ -22,10 +22,10 @@
   <body>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="H7sJixcs"></script>
-    <div>
-      <div style="width: 95%" id="login">
+    <div class="loading">
+      <div style="width: 95%" id="login" style="display:none!important;">
         <h1 class="center" style="text-align: center;">¿Que artista sigues que nadie más escucha?</h1>
-  <img class="center poster" src="https://pbs.twimg.com/media/Dk0fV3gWsAEP7jF.jpg:large">
+        <img class="center poster" src="https://pbs.twimg.com/media/Dk0fV3gWsAEP7jF.jpg:large">
         <br />
         <button class="button center" id="login-button">¡Averiguémoslo!</button>
       </div>
@@ -115,7 +115,7 @@
           document.getElementById('login-button').addEventListener('click', function() {
 
             var client_id = '434c6e646b3f4cd8be2c77d87b5e97b6'; // Your client id
-            var redirect_uri = 'https://rub.mackaber.me/'; // Your redirect uri
+            var redirect_uri = 'http://127.0.0.1:5500/'; // Your redirect uri
 
             var state = generateRandomString(16);
 

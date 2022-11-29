@@ -35,16 +35,16 @@ function start(token,response) {
 
 		let artist = artists[0];
 		let name = response.display_name.length > 9 ? response.display_name.substr(0,8) : response.display_name
-		let genre = artist.genres.size > 0 ? artist.genres[0] : "na."
+		let genre = artist.genres.size > 0 ? artist.genres[0] : "%3F"
 
 		let profile_image = response.images[0].url
 
 		let link = `https://res.cloudinary.com/recomiendaunabanda/image/upload/`;
 		link += `c_scale,l_fetch:${window.btoa(artist.image)},w_370,x_500,y_240/`;
-		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${name},x_-320,y_-298/`;
-		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${artist.followers},x_-50,y_-110/`;
-		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:${genre},x_120,y_55/`;
-		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${artist.name},x_220,y_-298/`;
+		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${name},g_east,x_820,y_-295/`;
+		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${artist.followers},x_-46,y_-75/`;
+		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:${genre},x_120,y_80/`;
+		link += `co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:${artist.name},x_-100,y_-200/`;
 		// link += `c_scale,l_fetch:${window.btoa(encodeURIComponent(response.images[0].url))},r_max,w_150,x_-550,y_-298/`
 		link += `c_crop/v1669749018/artist/final_recomienda.png`;
 
