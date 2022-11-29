@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://graphics8.nytimes.com/images/2011/12/08/technology/bits-newtwitter/bits-newtwitter-tmagArticle.jpg" />
     <title>#RecomiendaUnaBanda</title>
     <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
@@ -20,15 +21,9 @@
 
   <body>
     <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="H7sJixcs"></script>
     <div>
-      <div style="width: 100%" id="login">
+      <div style="width: 95%" id="login">
         <h1 class="center" style="text-align: center;">¿Que artista sigues que nadie más escucha?</h1>
   <img class="center poster" src="https://pbs.twimg.com/media/Dk0fV3gWsAEP7jF.jpg:large">
         <br />
@@ -45,17 +40,7 @@
   </body>
     <script id="artist-template" type="text/x-handlebars-template">
       <h1 class="center">TU RESULTADO ES:</h1><br>
-      <img class="center sharable" src="http://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png">
-      <br>
-      <br>
-      <div class="center">
-	      <a href="https://twitter.com/intent/tweet?button_hashtag=RecomiendaUnaBanda&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-size="large" data-url="http://metamagic.mackaber.me/?url=https://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Francois%20One_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png&orgn=http://rub.mackaber.me&title=RECOMIENDAUNABANDA&description=Averigua%20que%20artistas%20sigues%20que%20nadie%20mas%20escucha&card=summary_large_image&site=@mackaber" data-show-count="true" data-related="mackaber,pictoline" data-lang="es" data-show-count="false">Tweet #RecomiendaUnaBanda</a>
-	      <br>
-	      <div class="center fb-share-button" 
-	        data-href="https://metamagic.mackaber.me/?url=https://res.cloudinary.com/recomiendaunabanda/image/upload/c_scale,l_fetch:{{image}},w_370,x_500,y_240/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{user_name}},x_-320,y_-298/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{artist.followers}},x_-50,y_-110/co_rgb:feef5e,e_colorize:100,l_text:Arial_60_bold:{{genre}},x_120,y_55/co_rgb:feef5e,e_colorize:100,l_text:Arial_50_bold:{{artist.name}},x_220,y_-298/c_scale,l_fetch:{{user_image}},r_max,w_150,x_-550,y_-298/c_crop/v1534575161/artist/final_rub.png&orgn=http://rub.mackaber.me&title=RECOMIENDAUNABANDA&description=sAverigua%20que%20artistas%20sigues%20que%20nadie%20mas%20escucha&card=summary_large_image&site=@mackaber" 
-	        data-layout="button_count">
-	      </div>
-	  	</div>
+      <img class="center sharable" src="{{link}}">
 	  </script>
 
       
@@ -105,7 +90,7 @@
             state = params.state,
             storedState = localStorage.getItem(stateKey);
 
-        if (access_token && (state == null || state !== storedState)) {
+        if (access_token && storedState && (state == null || state !== storedState)) {
           alert('There was an error during the authentication');
         } else {
           localStorage.removeItem(stateKey);
@@ -130,7 +115,7 @@
           document.getElementById('login-button').addEventListener('click', function() {
 
             var client_id = '434c6e646b3f4cd8be2c77d87b5e97b6'; // Your client id
-            var redirect_uri = 'http://rub.mackaber.me/'; // Your redirect uri
+            var redirect_uri = 'https://rub.mackaber.me/'; // Your redirect uri
 
             var state = generateRandomString(16);
 
